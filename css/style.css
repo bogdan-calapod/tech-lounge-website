@@ -15,6 +15,7 @@ header {
 
     animation: techLoungeGradient 31s ease infinite;
     transform-origin: bottom;
+    overflow-y: auto;
 }
 
 h1,
@@ -36,6 +37,7 @@ h2 {
     text-transform: uppercase;
     animation-delay: 2s;
     font-size: 15px;
+    font-weight: 600;
 }
 
 .logo {
@@ -49,6 +51,7 @@ h2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 0 auto;
 }
 
 a {
@@ -60,6 +63,7 @@ a {
     height: 100px;
     width: 100px;
     margin: 10px;
+
 }
 
 .projects div {
@@ -72,6 +76,7 @@ a {
     animation-fill-mode: forwards;
     animation-delay: 2s;
 }
+
 
 .projects div:hover {
     background-color: #b31e8d;
@@ -114,6 +119,17 @@ a {
 
 .projects div:nth-child(6) {
     animation-delay: 4.5s;
+}
+
+@media screen and (max-width: 960px) {
+    .projects {
+        width: 80vw;
+        flex-wrap: wrap;
+    }
+
+    .projects div:after {
+        font-size: 15px;
+    }
 }
 
 @keyframes techLoungeGradient {
