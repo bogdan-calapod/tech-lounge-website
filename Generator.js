@@ -82,7 +82,6 @@ class Generator {
     
     fs.ensureDirSync(this.config.rootPath + '/build/js');
 
-    //TODO: Add optimization step after copying static assets
     this._copyStaticAssets()
         ._copyJavaScript();
 
@@ -158,6 +157,7 @@ class Generator {
 
   _copyJavaScript() {
     // Get JS
+    //TODO: Convert with Babel
     ncp(
       this.config.rootPath + '/src/js',
       this.config.rootPath + '/build/js'

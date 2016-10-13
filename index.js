@@ -6,10 +6,7 @@
 let PROD = process.argv[2] == '--prod' ? true : false;
 
 let Generator = require(__dirname + '/Generator');
-
-let fs = require('fs-extra');
 let ncp = require('ncp');
-let readdir = require('recursive-readdir-sync');
 
 let config = {
   rootPath: __dirname,
