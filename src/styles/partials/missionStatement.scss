@@ -9,6 +9,7 @@ section.missionStatement {
   @media screen and(max-width: 1024px) {
     flex-direction: column;
     padding-top: 60px;
+    height: auto;
   }
 
   > * {
@@ -22,6 +23,7 @@ section.missionStatement {
     font-weight: 100;
     padding-left: 30px;
     color: $lightBlue;
+    margin: 10px auto;
 
     @media screen and(max-width: 1024px) {
       font-size: 50px;
