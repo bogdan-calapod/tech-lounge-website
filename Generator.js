@@ -10,7 +10,6 @@ let sass = require('node-sass');
 let fs = require('fs-extra');
 let ncp = require('ncp').ncp;
 let zip = require('node-targz');
-let sharp = require('sharp');
 let readdir = require('recursive-readdir');
 let postcss = require('postcss');
 let autoprefixer = require('autoprefixer');
@@ -92,47 +91,6 @@ class Generator {
   }
 
   /// PRIVATE FUNCTIONS ///
-  /**
-   * Apply optimizations for every '.jpg' image
-   * in the /build/img/ directory
-   * @returns {Generator}
-   * @private
-   */
-  _optimizeImages() {
-    let rootPath = this.config.destination + '/img/';
-    
-    readdir(
-      rootPath,
-      (err, files) => {
-        if(err) {
-          console.log(err);
-          process.exit();
-        }
-        
-        files.filter(x => x.split('.').pop() == 'jpg')
-          .map(p => {
-            try {
-              sharp(p)
-                .resize(500, null)
-                .quality(70)
-                .jpeg()
-                .toBuffer(
-                  (e, b, i) => {
-                    if(b != null) 
-                      fs.writeFileSync(p, b)
-                  }
-                )
-            } catch (e) {
-              console.log('t', e);
-            }
-            return p;
-          })
-      }
-    );
-    
-    return this;
-  }
-  
   _copyStaticAssets() {
     console.log('[StatGen] Copying static assets');
     
@@ -148,8 +106,7 @@ class Generator {
     // Move teams
     ncp(
       this.config.rootPath + '/' + this.config.teamsFolder,
-      this.config.rootPath + '/build/img/teams',
-      this._optimizeImages.bind(this)
+      this.config.rootPath + '/build/img/teams'
     );
 
     return this;

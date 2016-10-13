@@ -1,0 +1,33 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a,
+a:link,
+a:visited {
+  color: currentColor;
+  text-decoration: none;
+}
+
+section {
+  position: relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+    left: 20px;
+
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  &:before {
+    top: 20px;
+  }
+
+  &:after {
+    bottom: 20px;
+  }
+
+}
