@@ -6,8 +6,14 @@ mixin contact
       a(href='#' target='_blank')
         .mapImg
     .form
-      form
-        input(type='text' placeholder='//NAME')
-        input(type='text' placeholder='//EMAIL')
-        textarea(placeholder='//MESSAGE')
+      iframe#tg(name='tg')
+      form(method='post' target='tg' action='https://docs.google.com/forms/d/e/1FAIpQLSdSMqqnEjQo9eCD96v7xXqFNxNXcdOPgEWSVVqjwqWSVxU1mQ/formResponse')
+        input(type='text' placeholder='//NAME' name='entry.237120345')
+        input(type='text' placeholder='//EMAIL' name='entry.820697989')
+        textarea(placeholder='//MESSAGE' name='entry.1035208826')
         button(type='submit') Send
+      script.
+        document.querySelector('form').addEventListener(
+          'submit',
+          function() {document.querySelector('form').classList.toggle('completed'); return false;}
+        )

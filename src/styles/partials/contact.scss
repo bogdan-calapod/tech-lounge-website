@@ -42,6 +42,8 @@ section.contact {
 
   .form {
     form {
+      position: relative;
+
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -55,6 +57,40 @@ section.contact {
         width: 100%;
         flex-direction: column;
       }
+
+      &:before {
+        position: absolute;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: 0.4s all;
+
+        content: '//Message sent';
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 50px;
+      }
+
+      &.completed {
+        &:before {
+          height: 100%;
+        }
+
+        input,
+        textarea,
+        button {
+          opacity: 0;
+        }
+      }
+    }
+
+    iframe {
+      display: none;
     }
 
     input,
@@ -68,6 +104,8 @@ section.contact {
 
       border: 0;
       border-bottom: 5px solid darken(white, 5);
+
+      transition: 0.4s all;
     }
 
     textarea {
