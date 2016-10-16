@@ -7,6 +7,11 @@ section.projects {
 
   background-color: $deepBlue;
 
+  &:before {
+    content: '//PROJECTS';
+    color: white;
+  }
+
   .text {
     display: flex;
     flex-direction: row;
