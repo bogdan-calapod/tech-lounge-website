@@ -1,0 +1,29 @@
+section.projects {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  padding-bottom: 30px;
+
+  background-color: $deepBlue;
+
+  .text {
+    display: flex;
+    flex-direction: row;
+    color: white;
+
+    align-items: center;
+
+    > * {
+      flex: 1 0 0;
+      box-sizing: border-box;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 50px;
+      font-weight: 100;
+    }
+
+  }
+}
