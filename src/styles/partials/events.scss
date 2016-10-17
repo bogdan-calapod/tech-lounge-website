@@ -1,0 +1,55 @@
+section.events {
+  &:before {
+    content: '//EVENTS';
+    color: $magenta;
+  }
+
+  display: flex;
+  flex-direction: row;
+
+  padding-top: 60px;
+
+  @media screen and(max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .event {
+    width: calc(100% / 3);
+
+    @media screen and(max-width: 768px) {
+      width: 90%;
+      padding: 0;
+    }
+
+    margin: 15px;
+
+    h1 {
+      font-size: 21px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: $deepBlue;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: center;
+
+      div {
+        margin: 10px;
+        font-size: 14px;
+      }
+
+      img {
+        height: 40px;
+      }
+    }
+  }
+}
